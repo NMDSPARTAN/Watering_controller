@@ -1,0 +1,33 @@
+int water; //random variable 
+void setup() {
+  pinMode(4,OUTPUT); //output pin for spray motor
+  Serial.begin(57600);
+
+}
+
+void loop() { 
+  water = digitalRead(6);  // reading the coming signal from the soil sensor
+  if(water == HIGH) // if water level is full then cut the relay 
+  {
+  digitalWrite(3,LOW); // low is to cut the relay
+  Serial.print("Off");
+
+  }
+  else
+  {
+  Serial.print("ON");
+  digitalWrite(3,HIGH); //high to continue proving signal and water supply
+  }
+  //delay(86400000); 
+  delay(2000);
+  //Serial.print("ON");
+  digitalWrite(4,HIGH);
+  //delay(5000);
+  //Serial.print("OFF");
+  digitalWrite(4,LOW);
+
+
+
+
+
+}
